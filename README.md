@@ -12,6 +12,7 @@ npx expo start
 ```
 
 Then scan the QR code with Expo Go (iOS/Android).
+[I'd suggest to use Android Emulator as the latest version of expo go is not available on App/Play Store currently.]
 
 ## Key Decisions
 
