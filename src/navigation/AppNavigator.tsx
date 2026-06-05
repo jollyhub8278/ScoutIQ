@@ -9,11 +9,9 @@ import ProfileScreen from '../screens/ProfileScreen';
 import ShortlistScreen from '../screens/ShortlistScreen';
 import { useShortlist } from '../context/ShortlistContext';
 
-// Stack navigator for Discover tab (Discover → Profile flow)
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// Header style shared across all screens
 const headerStyle = {
   backgroundColor: '#4F46E5',
 };
@@ -22,9 +20,8 @@ const headerTitleStyle = {
   fontWeight: '700' as const,
   fontSize: 18,
 };
-const headerTintColor = '#FFFFFF'; // back button color
+const headerTintColor = '#FFFFFF'; 
 
-// The Discover stack: has two screens inside one tab
 const DiscoverStack = () => (
   <Stack.Navigator
     screenOptions={{
@@ -46,7 +43,6 @@ const DiscoverStack = () => (
   </Stack.Navigator>
 );
 
-// The main bottom tab navigator
 const AppNavigator = () => {
   const { shortlist } = useShortlist();
 
@@ -72,7 +68,7 @@ const AppNavigator = () => {
           name="DiscoverTab"
           component={DiscoverStack}
           options={{
-            headerShown: false, // stack navigator handles its own header
+            headerShown: false, 
             title: 'Discover',
             tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>🔍</Text>,
           }}
@@ -85,7 +81,6 @@ const AppNavigator = () => {
             headerStyle,
             headerTitleStyle,
             tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>⭐</Text>,
-            // Badge showing shortlist count
             tabBarBadge: shortlist.length > 0 ? shortlist.length : undefined,
           }}
         />

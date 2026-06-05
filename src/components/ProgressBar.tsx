@@ -4,24 +4,21 @@ import { View, Text, StyleSheet } from 'react-native';
 interface Props {
   value: number; // e.g. 75
   max: number;   // e.g. 100
-  label: string; // e.g. "Speed"
+  label: string; 
   color?: string; // optional custom color
 }
 
 const ProgressBar: React.FC<Props> = ({ value, max, label, color = '#4F46E5' }) => {
-  const percentage = (value / max) * 100; // convert to percentage
+  const percentage = (value / max) * 100; 
 
   return (
     <View style={styles.container}>
-      {/* Row with label on left and value on right */}
       <View style={styles.labelRow}>
         <Text style={styles.label}>{label}</Text>
         <Text style={styles.value}>{value}/{max}</Text>
       </View>
 
-      {/* The track (grey background bar) */}
       <View style={styles.track}>
-        {/* The fill (colored bar) — width is dynamic based on percentage */}
         <View style={[styles.fill, { width: `${percentage}%` as any, backgroundColor: color }]} />
       </View>
     </View>
@@ -33,8 +30,8 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   labelRow: {
-    flexDirection: 'row',       // side by side (like display:flex in CSS)
-    justifyContent: 'space-between', // label left, value right
+    flexDirection: 'row',      
+    justifyContent: 'space-between', 
     marginBottom: 5,
   },
   label: {
@@ -48,9 +45,9 @@ const styles = StyleSheet.create({
   },
   track: {
     height: 8,
-    backgroundColor: '#E5E7EB', // grey background
+    backgroundColor: '#E5E7EB', 
     borderRadius: 4,
-    overflow: 'hidden',          // clips the fill bar to rounded corners
+    overflow: 'hidden',         
   },
   fill: {
     height: '100%',

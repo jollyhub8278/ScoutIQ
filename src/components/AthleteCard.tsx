@@ -7,18 +7,17 @@ interface Props {
   onPress: () => void; // called when card is tapped
 }
 
-// Color per sport for the badge
+
 const SPORT_COLORS: Record<string, string> = {
-  Football:   '#10B981', // green
-  Basketball: '#F59E0B', // amber
-  Swimming:   '#3B82F6', // blue
+  Football:   '#10B981', 
+  Basketball: '#F59E0B', 
+  Swimming:   '#3B82F6', 
 };
 
-// Score color based on value
 const getScoreColor = (score: number) => {
-  if (score >= 85) return '#10B981'; // green = excellent
-  if (score >= 70) return '#F59E0B'; // amber = good
-  return '#EF4444';                  // red = needs work
+  if (score >= 85) return '#10B981'; 
+  if (score >= 70) return '#F59E0B'; 
+  return '#EF4444';                  
 };
 
 const AthleteCard: React.FC<Props> = ({ athlete, onPress }) => {
@@ -26,12 +25,10 @@ const AthleteCard: React.FC<Props> = ({ athlete, onPress }) => {
 
   return (
     <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.8}>
-      {/* Left: Avatar circle with initials */}
       <View style={[styles.avatar, { backgroundColor: sportColor + '20' }]}>
         <Text style={[styles.initials, { color: sportColor }]}>{athlete.imageInitials}</Text>
       </View>
 
-      {/* Middle: Name, position, sport badge */}
       <View style={styles.info}>
         <Text style={styles.name}>{athlete.name}</Text>
         <Text style={styles.position}>{athlete.position}</Text>
@@ -40,7 +37,6 @@ const AthleteCard: React.FC<Props> = ({ athlete, onPress }) => {
         </View>
       </View>
 
-      {/* Right: Score + age */}
       <View style={styles.scoreContainer}>
         <Text style={[styles.score, { color: getScoreColor(athlete.score) }]}>
           {athlete.score}
@@ -54,7 +50,7 @@ const AthleteCard: React.FC<Props> = ({ athlete, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: 'row',  // horizontal layout
+    flexDirection: 'row',  
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
     borderRadius: 12,
@@ -72,7 +68,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 52,
     height: 52,
-    borderRadius: 26, // makes it a circle
+    borderRadius: 26, 
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 14,
@@ -82,7 +78,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   info: {
-    flex: 1, // takes remaining space
+    flex: 1, 
   },
   name: {
     fontSize: 16,
@@ -96,7 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   sportBadge: {
-    alignSelf: 'flex-start', // don't stretch full width
+    alignSelf: 'flex-start', 
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: 10,

@@ -1,7 +1,6 @@
 import { Athlete } from '../types';
 
 export const ATHLETES: Athlete[] = [
-  // ── FOOTBALL ──────────────────────────────────────────
   {
     id: '1',
     name: 'Carlos Mendes',
@@ -15,8 +14,7 @@ export const ATHLETES: Athlete[] = [
       { label: 'Accuracy', value: 82, max: 100 },
       { label: 'Strength', value: 70, max: 100 },
     ],
-    // score = average of all stat values
-    score: Math.round((88 + 75 + 82 + 70) / 4), // 79
+    score: Math.round((88 + 75 + 82 + 70) / 4), 
   },
   {
     id: '2',
@@ -31,7 +29,7 @@ export const ATHLETES: Athlete[] = [
       { label: 'Accuracy', value: 85, max: 100 },
       { label: 'Strength', value: 68, max: 100 },
     ],
-    score: Math.round((72 + 90 + 85 + 68) / 4), // 79
+    score: Math.round((72 + 90 + 85 + 68) / 4), 
   },
   {
     id: '3',
@@ -79,7 +77,6 @@ export const ATHLETES: Athlete[] = [
     score: Math.round((95 + 78 + 74 + 65) / 4), // 78
   },
 
-  // ── BASKETBALL ────────────────────────────────────────
   {
     id: '6',
     name: 'Darius Cole',
@@ -156,7 +153,6 @@ export const ATHLETES: Athlete[] = [
     score: Math.round((68 + 72 + 88 + 70) / 4), // 75
   },
 
-  // ── SWIMMING ──────────────────────────────────────────
   {
     id: '11',
     name: 'Sophie Laurent',

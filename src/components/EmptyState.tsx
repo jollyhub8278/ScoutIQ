@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 interface Props {
-  icon: string;   // emoji, e.g. "🔍"
+  icon: string;   
   title: string;
   subtitle: string;
 }
@@ -19,9 +19,9 @@ const EmptyState: React.FC<Props> = ({ icon, title, subtitle }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,               // takes all available space
-    alignItems: 'center',  // centers horizontally
-    justifyContent: 'center', // centers vertically
+    flex: 1,               
+    alignItems: 'center',  
+    justifyContent: 'center', 
     paddingTop: 80,
   },
   icon: {

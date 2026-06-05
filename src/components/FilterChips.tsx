@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 
-// Sport options — 'All' plus the 3 sports
 const FILTERS = ['All', 'Football', 'Basketball', 'Swimming'];
 
 interface Props {
@@ -11,15 +10,13 @@ interface Props {
 
 const FilterChips: React.FC<Props> = ({ selected, onSelect }) => {
   return (
-    // horizontal ScrollView so chips don't wrap to next line
     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scroll}>
       {FILTERS.map(filter => {
         const isActive = selected === filter;
         return (
-          // TouchableOpacity = clickable element (like a button without default styling)
-          <TouchableOpacity
+            <TouchableOpacity
             key={filter}
-            style={[styles.chip, isActive && styles.chipActive]} // add active style if selected
+            style={[styles.chip, isActive && styles.chipActive]} 
             onPress={() => onSelect(filter)}
           >
             <Text style={[styles.chipText, isActive && styles.chipTextActive]}>
@@ -46,7 +43,7 @@ const styles = StyleSheet.create({
     borderColor: '#E5E7EB',
   },
   chipActive: {
-    backgroundColor: '#4F46E5', // indigo when selected
+    backgroundColor: '#4F46E5', 
     borderColor: '#4F46E5',
   },
   chipText: {

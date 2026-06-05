@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Athlete } from '../types';
 
-// Shape of what the context provides
 interface ShortlistContextType {
   shortlist: Athlete[];
   addToShortlist: (athlete: Athlete) => void;
@@ -10,7 +9,6 @@ interface ShortlistContextType {
   isShortlisted: (id: string) => boolean;
 }
 
-// Create the context with a default value
 const ShortlistContext = createContext<ShortlistContextType>({
   shortlist: [],
   addToShortlist: () => {},
@@ -18,28 +16,25 @@ const ShortlistContext = createContext<ShortlistContextType>({
   isShortlisted: () => false,
 });
 
-const STORAGE_KEY = '@scoutiq_shortlist'; // key used in AsyncStorage (like localStorage)
-
-// Provider wraps your whole app so all screens can access shortlist
+const STORAGE_KEY = '@scoutiq_shortlist'; 
 export const ShortlistProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [shortlist, setShortlist] = useState<Athlete[]>([]);
 
-  // On app start — load saved shortlist from AsyncStorage (like localStorage.getItem)
+  
   useEffect(() => {
     const loadShortlist = async () => {
       try {
         const saved = await AsyncStorage.getItem(STORAGE_KEY);
         if (saved) {
-          setShortlist(JSON.parse(saved)); // parse the JSON string back to array
+          setShortlist(JSON.parse(saved)); 
         }
       } catch (e) {
         console.error('Failed to load shortlist', e);
       }
     };
     loadShortlist();
-  }, []); // empty array = run once on mount
+  }, []); 
 
-  // Every time shortlist changes — save it to AsyncStorage
   useEffect(() => {
     const saveShortlist = async () => {
       try {
@@ -49,10 +44,9 @@ export const ShortlistProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       }
     };
     saveShortlist();
-  }, [shortlist]); // runs whenever shortlist state changes
+  }, [shortlist]); 
 
   const addToShortlist = (athlete: Athlete) => {
-    // Only add if not already in list
     setShortlist(prev =>
       prev.find(a => a.id === athlete.id) ? prev : [...prev, athlete]
     );
@@ -63,7 +57,7 @@ export const ShortlistProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   const isShortlisted = (id: string) => {
-    return shortlist.some(a => a.id === id); // returns true/false
+    return shortlist.some(a => a.id === id); 
   };
 
   return (
@@ -73,5 +67,4 @@ export const ShortlistProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   );
 };
 
-// Custom hook — just call useShortlist() in any screen
 export const useShortlist = () => useContext(ShortlistContext);
