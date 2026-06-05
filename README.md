@@ -1,12 +1,16 @@
 # ScoutIQ — Athlete Discovery App
 
 A React Native (Expo) app for sports talent scouts to browse athletes, view profiles, and manage a shortlist.
+    
+<img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/5acc4af0-1ed0-4341-9559-9fab666d1097" />    
+<img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/f66a21c7-5218-4bca-b6eb-496466217931" />    
+<img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/a48b0374-285f-4ffd-a002-0f1f8ebed6c5" />
 
 ## How to Run
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/scoutiq
-cd scoutiq
+git clone https://github.com/jollyhub8278/ScoutIQ.git
+cd ScoutIQ
 npm install
 npx expo start
 ```
