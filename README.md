@@ -32,4 +32,4 @@ With more time: add swipe-to-delete using `react-native-gesture-handler`, and ad
 
 ## Tools Used
 
-- Claude AI (Anthropic) — for code structure guidance
+- Claude AI — for code structure guidance
